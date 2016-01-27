@@ -61,7 +61,7 @@
                     <tr>
                         <td class="auto-style1">&nbsp;</td>
                         <td class="auto-style7">
-                            <asp:Button ID="GetEmployee_Button" runat="server" Text="Get Employee!" Height="25px" OnClick="GetEmployee_Button_Click" Width="290px" /></td>
+                            <asp:Button ID="GetEmployee_Button" runat="server" Text="Get Employee!" Height="25px" OnClick="GetEmployee_Button_Click" Width="290px"/></td>
                     </tr>
                     <tr>
                         <td class="auto-style1">&nbsp;Edit information</td>
@@ -174,11 +174,20 @@
                     <tr>
                         <td class="auto-style1">&nbsp;</td>
                         <td class="auto-style7">
-                            <asp:Button ID="SaveEmployee_Button" runat="server" Height="25px" Text="Save Employeee!" Width="290px" OnClick="SaveEmployee_Button_Click" />
+                            <asp:Button ID="SaveEmployee_Button" runat="server" Height="25px" Text="Save Employeee!" Width="290px" OnClick="SaveEmployee_Button_Click"/>
+                            <br/>
+                            <br/>
                         </td>
                     </tr>
+                     <tr>
+                        <td class="auto-style1">&nbsp;</td>
+                        <td class="auto-style7">&nbsp;</td>
+                    </tr>
                 </table>
+                <br/>
+                <br/>
             </div>
+            <br/>
         </div>
 
 

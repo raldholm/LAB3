@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Data.Common;
+using System.Web.Services.Description;
 using System.ServiceModel;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using NWEmployee;
 
 namespace EmployeeWebClient
 {
@@ -69,6 +72,49 @@ namespace EmployeeWebClient
 
         protected void SaveEmployee_Button_Click(object sender, EventArgs e)
         {
+            try
+            {
+                EmployeeServiceClient client = new EmployeeServiceClient();
+                if (client.State == CommunicationState.Faulted)
+                    client = new EmployeeServiceClient();
+
+                MyEmployee employee = new MyEmployee();
+                employee.EmployeeId = Convert.ToInt32(DisplayEmployee_TextBox.Text.Trim());
+                employee.LastName = LastName_TextBox.Text.Trim();
+                employee.FirstName = FirstName_TextBox.Text.Trim();
+                employee.Title = Title_TextBox.Text.Trim();
+                employee.TitleOfCourtesy = TitleOfCourtesy_TextBox.Text.Trim();
+                employee.BirthDate = Convert.ToDateTime(BirthDate_TextBox.Text.Trim());
+                employee.HireDate = Convert.ToDateTime(HireDate_TextBox.Text.Trim());
+                employee.Address = Adress_TextBox.Text.Trim();
+                employee.City = City_TextBox.Text.Trim();
+                employee.Region = Region_TextBox.Text.Trim();
+                employee.PostalCode = PostalCode_TextBox.Text.Trim();
+                employee.Country = Country_TextBox.Text.Trim();
+                employee.HomePhone = HomePhone_TextBox.Text.Trim();
+                employee.Extension = Extension_TextBox.Text.Trim();
+                employee.Notes = Notes_TextBox.Text.Trim();
+                employee.ReportsTo = Convert.ToInt32(ReportsTo_TextBox.Text.Trim());
+
+                client.SaveEmployee(employee);
+                Response.Write("SPARAT!");
+            }
+            catch (FormatException ex)
+            {
+                Response.Write("Opps! Felaktig data inmatad - ");
+                Response.Write("Felmeddelande: ");
+                Response.Write(ex.Message);
+                Response.Write(" Börja om genom att klicka <a href='Default.aspx'>" +
+                    "här.");
+            }
+            catch (NullReferenceException ex)
+            {
+                Response.Write("Opps! Du måste sätta ett värde! - ");
+                Response.Write("Felmeddelande: ");
+                Response.Write(ex.Message);
+                Response.Write(" Börja om genom att klicka <a href='Default.aspx'>" +
+                    "här.");
+            }
 
         }
     }
