@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
+using System.ServiceModel.Dispatcher;
 using System.Text;
 
 namespace NWEmployee
@@ -17,4 +18,5 @@ namespace NWEmployee
         [OperationContract]
         void SaveEmployee(MyEmployee employee);
     }
+   
 }
