@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -19,6 +20,8 @@ namespace EmployeeWebClient
             try
             {
                 EmployeeServiceClient client = new EmployeeServiceClient();
+                if (client.State == CommunicationState.Faulted)
+                    client = new EmployeeServiceClient();
 
                 var employee = client.GetEmployee(int.Parse(EnterEmployeeID_TextBox.Text));
                 DisplayEmployee_TextBox.Text = employee.EmployeeId.ToString();
