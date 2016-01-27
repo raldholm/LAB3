@@ -5,6 +5,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 
+
 namespace NorthwindService
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IShipperService" in both code and config file together.
@@ -12,6 +13,9 @@ namespace NorthwindService
     public interface IShipperService
     {
         [OperationContract]
-        void DoWork();
+        MyShipper GetShipper(int shipperId);
+
+        [OperationContract]
+        void SaveShipper(MyShipper shipper);
     }
 }

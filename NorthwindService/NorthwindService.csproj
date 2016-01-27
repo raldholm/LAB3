@@ -152,6 +152,7 @@
       <DependentUpon>NorthWindModel.tt</DependentUpon>
     </Compile>
     <Compile Include="IShipperService.cs" />
+    <Compile Include="ShipperService.cs" />
     <Compile Include="NorthWindModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
