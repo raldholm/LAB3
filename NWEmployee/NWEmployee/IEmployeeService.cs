@@ -12,6 +12,9 @@ namespace NWEmployee
     public interface IEmployeeService
     {
         [OperationContract]
-        void DoWork();
+        MyEmployee GetEmployee(int employeeId);
+
+        [OperationContract]
+        void SaveEmployee(MyEmployee employee);
     }
 }
