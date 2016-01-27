@@ -4,6 +4,8 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Web;
 using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace NorthwindService
 {
