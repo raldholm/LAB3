@@ -42,24 +42,61 @@ namespace NWEmployee
                 }
                 return employee;
             }
+            catch (CommunicationException ex)
+            {
+                throw new FaultException("An invalid operation has occurred.");
+            }
             catch (Exception)
             {
                 return new MyEmployee();
             }
         }
 
-        public void SaveEmployee(MyEmployee employee) { throw new NotImplementedException(); }
+        public void SaveEmployee(MyEmployee employee)
+        {
+            try
+            {
+                var newemployee = context.Employees.SingleOrDefault(s => s.EmployeeID == employee.EmployeeId);
+                if (employee != null)
+                {
+
+                    newemployee.LastName = employee.LastName;
+                    newemployee.FirstName = employee.FirstName;
+                    newemployee.Title = employee.Title;
+                    newemployee.TitleOfCourtesy = employee.TitleOfCourtesy;
+                    newemployee.BirthDate = employee.BirthDate;
+                    newemployee.HireDate = employee.HireDate;
+                    newemployee.Address = employee.Address;
+                    newemployee.City = employee.City;
+                    newemployee.Region = employee.Region;
+                    newemployee.PostalCode = employee.PostalCode;
+                    newemployee.Country = employee.Country;
+                    newemployee.HomePhone = employee.HomePhone;
+                    newemployee.Extension = employee.Extension;
+                    newemployee.Notes = employee.Notes;
+                    newemployee.ReportsTo = employee.ReportsTo;
+
+                    context.SaveChanges();
+
+                }
+
+            }
+            catch (Exception)
+            {
+                throw new System.Data.Entity.Infrastructure.DbUpdateException();
+            }
+        }
 
         public class FaultErrorHandler: IErrorHandler
         {
             public void ProvideFault(Exception error, MessageVersion version, ref Message fault)
             {
-                throw new NotImplementedException();
+                throw new FaultException("An invalid operation has occurred.");
             }
 
             public bool HandleError(Exception error)
             {
-                throw new NotImplementedException();
+                throw new FaultException("An invalid operation has occurred.");
             }
         }
 }
