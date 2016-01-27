@@ -12,8 +12,9 @@ namespace NWEmployee
     public class EmployeeService : IEmployeeService
     {
         public NORTHWNDEntities contex = new NORTHWNDEntities();
-        public void DoWork()
-        {
-        }
+
+        public MyEmployee GetEmployee(int employeeId) { throw new NotImplementedException(); }
+
+        public void SaveEmployee(MyEmployee employee) { throw new NotImplementedException(); }
     }
 }
