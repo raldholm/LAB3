@@ -115,6 +115,7 @@
       <DependentUpon>EmployeeService.svc</DependentUpon>
     </Compile>
     <Compile Include="IEmployeeService.cs" />
+    <Compile Include="MyEmployee.cs" />
     <Compile Include="NW.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
