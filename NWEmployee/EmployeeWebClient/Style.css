@@ -1,0 +1,19 @@
+﻿
+.wrapper {
+    padding: 5% 5% 5% 5%;
+}
+
+.content {
+    font-family: Segoe UI, sans-serif;
+    color: azure;
+    padding: 5%;
+    background-color: #79c6dd;
+    height: 600px;
+    width: 700px;
+   }
+
+table {
+    border-collapse: collapse;
+    border-spacing: 2px;
+    
+}

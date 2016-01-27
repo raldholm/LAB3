@@ -44,7 +44,7 @@ namespace NWEmployee
             }
             catch (CommunicationException ex)
             {
-                throw new FaultException("An invalid operation has occurred.");
+                throw new FaultException("An invalid operation has occurred."+ex.Message);
             }
             catch (Exception)
             {
