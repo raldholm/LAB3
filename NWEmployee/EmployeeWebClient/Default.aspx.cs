@@ -60,7 +60,7 @@ namespace EmployeeWebClient
                 Response.Write(" Börja om genom att klicka <a href='Default.aspx'>" +
                                "här.");
             }
-            catch (Exception ex)
+            catch (FaultException ex)
             {
                 Response.Write("Opps! något gick fel! - ");
                 Response.Write("Felmeddelande: ");
@@ -68,6 +68,7 @@ namespace EmployeeWebClient
                 Response.Write(" Börja om genom att klicka <a href='Default.aspx'>" +
                     "här.");
             }
+           
         }
 
         protected void SaveEmployee_Button_Click(object sender, EventArgs e)
